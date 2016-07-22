@@ -40,7 +40,8 @@
 					<ol>
 						<li><span class="section"><a href="#sec-overload">2.1 Do Not Overload Roles</a></span></li>
 						<li><span class="section"><a href="#sec-repetition">2.2 Avoid Unnecessary Repetition</a></span></li>
-						<li><span class="section"><a href="#sec-lists">2.3 List Roles are for Lists</a></span></li>
+						<li><span class="section"><a href="#sec-hd">2.3 Supply Labels for Identical Roles</a></span></li>
+						<li><span class="section"><a href="#sec-lists">2.4 List Roles are for Lists</a></span></li>
 					</ol>
 				</li>
 			</ol>
@@ -102,8 +103,42 @@
 					as it will be announced to users of assistive technologies each time it occurs, causing confusion.</p>
 			</section>
 			
+			<section id="sec-hd" class="section">
+				<h2 class="title">2.3 Supply Labels for Identical Roles</h2>
+				
+				<p>Although landmarks will be announced by their role name, if a document includes the same role multiple times
+					(e.g., multiple chapters, appendixes or indexes in one file), it is best practice to include a label to 
+					differentiate them. A label provides context when deciding which to navigate to (similar capabilities are 
+					not available for <code class="markup">epub:type</code>).</p>
+				
+				<p>Use the <code class="markup">aria-labelledby</code> attribute to associate a label with the role.</p>
+				
+				<pre>&lt;section role="index" aria-labelledby="idx01"&gt;
+   &lt;h1 id="idx01">Name Index&lt;/h1>
+   &#8230;
+&lt;/section>
+
+&lt;section role="index" aria-labelledby="idx02"&gt;
+   &lt;h1 id="idx02">Topical Index&lt;/h1>
+   &#8230;
+&lt;/section></pre>
+				
+				<p>If no label is available, one can be supplied in an <code class="markup">aria-label</code> attribute.</p>
+				
+				<pre>&lt;section role="chapter" aria-label="chapter 1"&gt;
+   &lt;p>Once upon a time &#8230;&lt;/p>
+   &#8230;
+&lt;/section>
+
+&lt;section role="chapter" aria-label="chapter 2"&gt;
+   &lt;p>When the forest opened up &#8230;&lt;/p>
+   &#8230;
+&lt;/section></pre>
+				
+			</section>
+			
 			<section id="sec-lists" class="section">
-				<h2 class="title">2.3 List Roles are for Lists</h2>
+				<h2 class="title">2.4 List Roles are for Lists</h2>
 				
 				<p>Assigning a role to an element overrides its default nature, so use care when applying roles to 
 					lists and list items.</p>
