@@ -24,19 +24,19 @@
 			    width: 45%
 			}
 			dl#roles dt,
-			dl#types dt {
+			dl#types dt{
 			    margin-bottom: 1em;
 			    font-weight: bold;
 			}
-			div.history {
+			div.history{
 			    margin-top: 2em;
 			    margin-bottom: 2em
-			}
-		</style>
+			}</style>
 	</head>
 	<body>
 		<header>
-			<p><a href="http://www.idpf.org"><img src="https://www.idpf.org/epub/images/idpflogo_web_125.jpg" alt="IDPF" class="logo"/></a></p>
+			<p><a href="http://www.idpf.org"><img src="https://www.idpf.org/epub/images/idpflogo_web_125.jpg" alt="IDPF"
+						class="logo" /></a></p>
 			<h1 class="title">EPUB Package Metadata Guide</h1>
 			<p class="identity">
 				<span class="pubdate">4 July 2016</span>
@@ -44,25 +44,25 @@
 			<div class="history">
 				<span class="history-title">Document history</span>
 				<ul>
-					<li><a href="https://github.com/IDPF/epub-guides/commits/master/guides/package-metadata/index.html">Changes to
-							this document</a></li>
+					<li><a href="https://github.com/IDPF/epub-guides/commits/master/guides/package-metadata/index.html"
+							>Changes to this document</a></li>
 				</ul>
 			</div>
 		</header>
 		<section class="section">
 			<h2 class="title">Overview</h2>
-			<p>The EPUB format only defines a minimal set of metadata properties for use in the Package Document, and
-				these properties are defined solely to control layout and rendering of the content. Authors are expected
-				to use properties from existing vocabularies for any needed metadata that cannot be expressed using the Dublin 
-				Core Metadata Element Set.</p>
+			<p>The EPUB format only defines a minimal set of metadata properties for use in the Package Document, and these
+				properties are defined solely to control layout and rendering of the content. Authors are expected to use
+				properties from existing vocabularies for any needed metadata that cannot be expressed using the Dublin Core
+				Metadata Element Set.</p>
 			<p>A consequence of this approach is that it is not always clear if there are preferred metadata properties that
 				Authors should be using for common expressions. The intent of this document is to provide a list of common
 				solutions to these metadata questions.</p>
-			<p>The table of properties below represents suggestions from the EPUB working group and community. Authors are 
-				<strong>not</strong> required to use these properties.</p>
-			<p>If a common use is not covered, suggestions for additions can be made through the 
-				<a href="https://github.com/IDPF/epub-guides/issues">issue tracker</a>. Creating a pull request that includes
-				the suggested property, definition and example is strongly preferred.</p>
+			<p>The table of properties below represents suggestions from the EPUB working group and community. Authors are
+					<strong>not</strong> required to use these properties.</p>
+			<p>If a common use is not covered, suggestions for additions can be made through the <a
+					href="https://github.com/IDPF/epub-guides/issues">issue tracker</a>. Creating a pull request that
+				includes the suggested property, definition and example is strongly preferred.</p>
 		</section>
 		<section class="section">
 			<h2 class="title">Metadata Properties</h2>
@@ -76,16 +76,17 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td class="center"><a href="https://schema.org/numberOfPages"><code class="markup">schema:numberOfPages</code></a></td>
+						<td class="center" id="schema-numberOfPages"><a href="https://schema.org/numberOfPages"><code
+									class="markup">schema:numberOfPages</code></a></td>
 						<td>
-							<p>The <a href="https://schema.org">schema.org</a> <code class="markup">numberOfPages</code> property 
-								provides the total number of pages. This number represents a static page count that does not change 
-								based on the device or reading system used.</p>
-								
-							<p>The value typically reflects one of: 1) the total number of pages in a fixed-layout publication;
-								2) the static page count from a print equivalent; or 3) the total number of static <a 
-									href="http://www.idpf.org/epub/vocab/structure/#pagebreak">page break markers</a> in a
-								reflowable publication.</p>
+							<p>The <a href="https://schema.org">schema.org</a>
+								<code class="markup">numberOfPages</code> property provides the total number of pages. This
+								number represents a static page count that does not change based on the device or reading
+								system used.</p>
+							<p>The value typically reflects one of: 1) the total number of pages in a fixed-layout
+								publication; 2) the static page count from a print equivalent; or 3) the total number of
+								static <a href="http://www.idpf.org/epub/vocab/structure/#pagebreak">page break markers</a>
+								in a reflowable publication.</p>
 						</td>
 						<td><pre>&lt;meta property="schema:numberOfPages">227&lt;/meta></pre></td>
 					</tr>
