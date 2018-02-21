@@ -21,7 +21,7 @@
 			<p><a href="http://www.idpf.org"><img src="https://www.idpf.org/epub/images/idpflogo_web_125.jpg" alt="IDPF" class="logo"/></a></p>
 			<h1 class="title">EPUB Type to ARIA Role Authoring Guide</h1>
 			<p class="identity">
-				<span class="pubdate">6 July 2016</span>
+				<span class="pubdate">21 February 2018</span>
 			</p>
 			<div class="history">
 				<span class="history-title">Document history</span>
@@ -41,7 +41,8 @@
 						<li><span class="section"><a href="#sec-overload">2.1 Do Not Overload Roles</a></span></li>
 						<li><span class="section"><a href="#sec-repetition">2.2 Avoid Unnecessary Repetition</a></span></li>
 						<li><span class="section"><a href="#sec-hd">2.3 Supply Labels for Identical Roles</a></span></li>
-						<li><span class="section"><a href="#sec-lists">2.4 List Roles are for Lists</a></span></li>
+						<li><span class="section"><a href="#sec-body">2.4 Do Not Override the <code>body</code> Element</a></span></li>
+						<li><span class="section"><a href="#sec-lists">2.5 List Roles are for Lists</a></span></li>
 					</ol>
 				</li>
 			</ol>
@@ -104,26 +105,26 @@
 			</section>
 			
 			<section id="sec-hd" class="section">
-				<h2 class="title">2.3 Supply Labels for Identical Roles</h2>
+				<h2 class="title">2.3 Supply Labels</h2>
 				
-				<p>Although landmarks will be announced by their role name, if a document includes the same role multiple times
-					(e.g., multiple chapters, appendixes or indexes in one file), it is best practice to include a label to 
-					differentiate them. A label provides context when deciding which to navigate to (similar capabilities are 
-					not available for <code class="markup">epub:type</code>).</p>
+				<p>If a landmark role (e.g., <code>doc-chapter</code>, <code>doc-part</code>, <code>doc-index</code>) does not
+					include a label, assistive technologies will not include it in the list of landmarks. A label provides 
+					context when deciding which landmark to navigate to (similar capabilities are not available for
+					<code class="markup">epub:type</code>).</p>
 				
 				<p>Use the <code class="markup">aria-labelledby</code> attribute to associate a label with the role.</p>
 				
-				<pre>&lt;section role="index" aria-labelledby="idx01"&gt;
+				<pre>&lt;section role="doc-index" aria-labelledby="idx01"&gt;
    &lt;h1 id="idx01">Name Index&lt;/h1>
    &#8230;
 &lt;/section>
 
-&lt;section role="index" aria-labelledby="idx02"&gt;
+&lt;section role="doc-index" aria-labelledby="idx02"&gt;
    &lt;h1 id="idx02">Topical Index&lt;/h1>
    &#8230;
 &lt;/section></pre>
 				
-				<p>If no label is available, one can be supplied in an <code class="markup">aria-label</code> attribute.</p>
+				<p>If a label is not available in the text, one can be supplied in an <code class="markup">aria-label</code> attribute.</p>
 				
 				<pre>&lt;section role="chapter" aria-label="chapter 1"&gt;
    &lt;p>Once upon a time &#8230;&lt;/p>
@@ -137,8 +138,28 @@
 				
 			</section>
 			
+			<section id="sec-body" class="section">
+				<h2 class="title">2.4 Do Not Override the <code>body</code> Element</h2>
+				
+				<p>Older guidance for the <code>epub:type</code> attribute has indicated it may be used to inflect
+					sectioning semantics on the HTML <code>body</code> element (e.g., to indicate front matter, or to
+					avoid using sectioning elements), but this practice is both invalid and harmful with ARIA roles.</p>
+				
+				<p>The <code>body</code> element already has the implied role <code>document</code>, and
+					<a href="https://www.w3.org/TR/html-aria/#body">no other roles can be defined on the element</a>.
+					Changing the role of the <code>body</code> element can affect the ability to read the content
+					for users of assistive technologies.</p>
+				
+				<p>Use of the <code>epub:type</code> attribute on the <code>body</code> element is now also strongly
+					discouraged.</p>
+				
+				<p><strong>Note</strong>: neither epubcheck nor the Ace by DAISY validators report the use of the
+					<code>role</code> attribute on the <code>body</code> element as an error. Manual inspection is
+					required until they are updated.</p>
+			</section>
+			
 			<section id="sec-lists" class="section">
-				<h2 class="title">2.4 List Roles are for Lists</h2>
+				<h2 class="title">2.5 List Roles are for Lists</h2>
 				
 				<p>Assigning a role to an element overrides its default nature, so use care when applying roles to 
 					lists and list items.</p>
