@@ -4,6 +4,7 @@
 		<title>EPUB Type to ARIA Role Authoring Guide</title>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="https://www.idpf.org/epub/css/epub-spec-2016.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
 		<style type="text/css">
 			body {
 				max-width: 65em;
@@ -39,6 +40,18 @@
 				color: rgb(180, 0, 0);
 				font-size: 120%;
 			}</style>
+			<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+			<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+			<script>
+				$(document).ready( function () {
+					$('#mappings').DataTable({
+						"scrollY":        "25em",
+						"scrollCollapse": true,
+						"paging":         false,
+						"info":           false
+        			});
+				} );
+			</script>
 	</head>
 	<body>
 		<header>
@@ -266,7 +279,7 @@
 			<p>See also the <a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a> document for more information
 				about the correct use of ARIA roles, states and properties.</p>
 
-			<table>
+			<table id="mappings">
 				<thead>
 					<tr>
 						<th>EPUB Structural Semantics Vocabulary</th>
@@ -441,7 +454,7 @@
 						<td></td>
 					</tr>
 					<tr>
-						<td></td>
+						<td><em hidden="hidden">cover</em></td>
 						<td><a href="http://www.idpf.org/epub/vocab/package/meta/#cover-image">cover-image</a></td>
 						<td><a href="http://www.w3.org/TR/dpub-aria-1.0/#doc-cover">doc-cover</a></td>
 						<td></td>
