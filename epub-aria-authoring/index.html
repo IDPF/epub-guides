@@ -1241,21 +1241,14 @@
 			<section id="sec-body" class="section">
 				<h2 class="title">5. Do Not Override the <code>body</code> Element</h2>
 
-				<p>Older guidance for the <code>epub:type</code> attribute has indicated it may be used to inflect
-					sectioning semantics on the HTML <code>body</code> element (e.g., to indicate front matter, or to
-					avoid using sectioning elements), but this practice is both invalid and harmful with ARIA roles.</p>
+				<p>The <code>epub:type</code> attribute may be used to inflect sectioning semantics on the
+					HTML <code>body</code> element (e.g., to indicate front matter, or to avoid using
+					sectioning elements), but this practice is both invalid and harmful with ARIA roles.</p>
 
-				<p>The <code>body</code> element already has the implied role <code>document</code>, and <a
+				<p>The <code>body</code> element has the implied role <code>document</code>, and <a
 						href="https://www.w3.org/TR/html-aria/#body">no other roles can be defined on the element</a>.
 					Changing the role of the <code>body</code> element can affect the ability to read the content for
 					users of assistive technologies.</p>
-
-				<p>Use of the <code>epub:type</code> attribute on the <code>body</code> element is now also strongly
-					discouraged.</p>
-
-				<p><strong>Note</strong>: neither epubcheck nor the Ace by DAISY validators report the use of the
-						<code>role</code> attribute on the <code>body</code> element as an error. Manual inspection is
-					required until they are updated.</p>
 			</section>
 
 			<section id="sec-lists" class="section">
