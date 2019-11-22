@@ -3,7 +3,7 @@
 	<head>
 		<title>EPUB Type to ARIA Role Authoring Guide</title>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="https://www.idpf.org/epub/css/epub-spec-2016.css" />
+		<link rel="stylesheet" type="text/css" href="../css/epub-spec-2016.css" />
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
 		<style type="text/css">
 			body {
@@ -1294,12 +1294,15 @@
 					like they would an image. In practical terms, this means that none of its content will be
 					available.</p>
 
-				<p>If a section of cover content needs to be identified, the generic <code>landmark</code> role can be
-					used with a label:</p>
+				<p>If a section of cover content needs to be identified as a landmark, the <code>aria-label</code>
+					or <code>aria-labelledby</code> attributes can be used with the `section` element:</p>
 
-				<pre>&lt;section role="landmark"&gt; aria-label="Cover"
+				<pre>&lt;section aria-label="Cover: As I Lay Dying. William Faulkner."&lt;
    &#8230;
 &lt;/section></pre>
+				
+				<p>(For `div` elements, the general `region` role is also needed. For more information about how to
+					use roles in content, refer to <a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>.)</p>
 			</section>
 		</section>
 	</body>
