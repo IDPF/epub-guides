@@ -1,3 +1,8 @@
+> [!WARNING]
+> **This repository is archived.** 
+>
+> Work on EPUB guides is now carried out in the W3C's [epub-specs](https://github.com/w3c/epub-specs) repository.
+
 # EPUB Guides
 
 This repository contains informative production guides for EPUB Publications.
